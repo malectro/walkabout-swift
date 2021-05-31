@@ -1,0 +1,26 @@
+[
+  {
+    "id": "kyle-home",
+    "coordinates": {
+      "latitude": 37.7737191532,
+      "longitude": -122.4463025372918
+    },
+    "radius": 5
+  },
+  {
+    "id": "panhandle",
+    "coordinates": {
+      "latitude": 37.772465,
+      "longitude": -122.445739
+    },
+    "radius": 20
+  },
+  {
+    "id": "ritual",
+    "coordinates": {
+      "latitude": 37.770498,
+      "longitude": -122.443773
+    },
+    "radius": 10
+  }
+]
