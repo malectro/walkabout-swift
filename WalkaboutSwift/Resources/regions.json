@@ -1,6 +1,8 @@
 [
   {
     "id": "kyle-home",
+    "name": "Home",
+    "imageName": "daft-punk",
     "coordinates": {
       "latitude": 37.7737191532,
       "longitude": -122.4463025372918
@@ -9,6 +11,8 @@
   },
   {
     "id": "panhandle",
+    "name": "Panhandle",
+    "imageName": "icybay",
     "coordinates": {
       "latitude": 37.772465,
       "longitude": -122.445739
@@ -17,6 +21,8 @@
   },
   {
     "id": "ritual",
+    "name": "Ritual",
+    "imageName": "icybay",
     "coordinates": {
       "latitude": 37.770498,
       "longitude": -122.443773

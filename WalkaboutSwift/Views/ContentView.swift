@@ -14,9 +14,11 @@ struct ContentView: View {
   var body: some View {
     switch locationMonitor.authorizationStatus {
     case .notDetermined:
-      AskPermission(action: {locationMonitor.requestPermission()})
+      LocationPermissionView(action: locationMonitor.requestPermission)
     case .authorized, .authorizedAlways, .authorizedWhenInUse:
       GotPermission().environmentObject(locationMonitor)
+        .onAppear { print("got permission appear") }
+        .onDisappear { print("got permission disappear") }
     default:
       ErrorView(authorizationStatus: locationMonitor.authorizationStatus)
     }
@@ -24,33 +26,24 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+  static var modelData: ModelData = ModelData()
+  
   static var previews: some View {
     ContentView()
-      .environmentObject(ModelData())
-  }
-}
-
-struct AskPermission: View {
-  var action: () -> Void
-  
-  var body: some View {
-    VStack {
-      Text("This app requires location services.")
-      Button("Okay", action: action)
-    }
+      .environmentObject(modelData)
   }
 }
 
 struct GotPermission: View {
   @EnvironmentObject var locationMonitor: LocationMonitor
   @StateObject var regionData: RegionData = RegionData()
-  var ccurrentLocation: CLLocation? {
+  var currentLocation: CLLocation? {
     locationMonitor.currentLocation
   }
   
   var body: some View {
     Group {
-      if let currentLocation = ccurrentLocation {
+      if let currentLocation = currentLocation {
         let regions = regionData.getRegionsNearLocation(location: currentLocation)
         VStack {
           Text("Location").font(.title)
@@ -67,7 +60,7 @@ struct GotPermission: View {
       }
     }.onAppear(
       perform: locationMonitor.startUpdatingLocation
-    )//.onDisappear(perform: locationMonitor.stopUpdatingLocation)
+    ).onDisappear(perform: locationMonitor.stopUpdatingLocation)
   }
 }
 

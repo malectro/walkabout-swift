@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 import CoreLocation
 
@@ -22,6 +23,12 @@ final class RegionData: ObservableObject {
 struct WalkaboutRegion : Hashable, Codable, Identifiable {
   var id: String
   var radius: Double
+  var name: String
+  
+  private var imageName: String
+  var image: Image {
+    Image(imageName)
+  }
   
   private var coordinates: Coordinates
   var locationCoordinate: CLLocationCoordinate2D {
@@ -30,6 +37,7 @@ struct WalkaboutRegion : Hashable, Codable, Identifiable {
   var location: CLLocation {
     CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
   }
+  
   struct Coordinates: Hashable, Codable {
     var latitude: Double
     var longitude: Double

@@ -11,6 +11,7 @@ import CoreLocation
 
 class LocationMonitor: NSObject, CLLocationManagerDelegate, ObservableObject {
   private let locationManager: CLLocationManager
+  private var subscribers: Int = 0
   
   @Published var authorizationStatus: CLAuthorizationStatus
   @Published var currentLocation: CLLocation?
@@ -44,13 +45,19 @@ class LocationMonitor: NSObject, CLLocationManagerDelegate, ObservableObject {
   }
   
   func startUpdatingLocation() {
-    print("updating location")
-    locationManager.startUpdatingLocation()
+    self.subscribers += 1
+    if self.subscribers == 1 {
+      print("updating location")
+      locationManager.startUpdatingLocation()
+    }
   }
   
   func stopUpdatingLocation() {
-    print("not updating location")
-    locationManager.stopUpdatingLocation()
+    self.subscribers -= 1
+    if self.subscribers == 0 {
+      print("not updating location")
+      locationManager.stopUpdatingLocation()
+    }
   }
 }
 

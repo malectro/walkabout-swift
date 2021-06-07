@@ -30,6 +30,11 @@
 		27E92BB22661986400B612D2 /* LocationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92BB12661986400B612D2 /* LocationMonitor.swift */; };
 		27E92BB42662D70F00B612D2 /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = 27E92BB32662D70F00B612D2 /* regions.json */; };
 		27E92BB62662D7E700B612D2 /* WalkaboutRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92BB52662D7E700B612D2 /* WalkaboutRegion.swift */; };
+		27F0EB3D266E9ACA00FFA668 /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F0EB3C266E9ACA00FFA668 /* LocationPermissionView.swift */; };
+		27F0EB3F266E9EBF00FFA668 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F0EB3E266E9EBF00FFA668 /* AppColors.swift */; };
+		27F0EB41266EA40800FFA668 /* Walkabout.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F0EB40266EA40800FFA668 /* Walkabout.strings */; };
+		27F0EB43266EA72D00FFA668 /* WalkaboutNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F0EB42266EA72D00FFA668 /* WalkaboutNavigation.swift */; };
+		27F0EB45266EB89600FFA668 /* NotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F0EB44266EB89600FFA668 /* NotesList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,11 @@
 		27E92BB12661986400B612D2 /* LocationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMonitor.swift; sourceTree = "<group>"; };
 		27E92BB32662D70F00B612D2 /* regions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
 		27E92BB52662D7E700B612D2 /* WalkaboutRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutRegion.swift; sourceTree = "<group>"; };
+		27F0EB3C266E9ACA00FFA668 /* LocationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionView.swift; sourceTree = "<group>"; };
+		27F0EB3E266E9EBF00FFA668 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		27F0EB40266EA40800FFA668 /* Walkabout.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Walkabout.strings; sourceTree = "<group>"; };
+		27F0EB42266EA72D00FFA668 /* WalkaboutNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutNavigation.swift; sourceTree = "<group>"; };
+		27F0EB44266EB89600FFA668 /* NotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +147,7 @@
 				27E92B672660530000B612D2 /* Assets.xcassets */,
 				27E92B6C2660530000B612D2 /* Info.plist */,
 				27E92B692660530000B612D2 /* Preview Content */,
+				27F0EB40266EA40800FFA668 /* Walkabout.strings */,
 			);
 			path = WalkaboutSwift;
 			sourceTree = "<group>";
@@ -171,6 +182,10 @@
 			isa = PBXGroup;
 			children = (
 				27E92B65266052FE00B612D2 /* ContentView.swift */,
+				27F0EB42266EA72D00FFA668 /* WalkaboutNavigation.swift */,
+				27F0EB44266EB89600FFA668 /* NotesList.swift */,
+				27F0EB3C266E9ACA00FFA668 /* LocationPermissionView.swift */,
+				27F0EB3E266E9EBF00FFA668 /* AppColors.swift */,
 				27E92BA526616A7500B612D2 /* Lib */,
 				27E92BA426616A6B00B612D2 /* Landmarks */,
 				27E92BA626616DA200B612D2 /* HexagonParameters.swift */,
@@ -332,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F0EB41266EA40800FFA668 /* Walkabout.strings in Resources */,
 				27E92B6B2660530000B612D2 /* Preview Assets.xcassets in Resources */,
 				27E92B682660530000B612D2 /* Assets.xcassets in Resources */,
 				27E92B93266078E300B612D2 /* landmarkData.json in Resources */,
@@ -362,11 +378,14 @@
 			files = (
 				27E92B66266052FE00B612D2 /* ContentView.swift in Sources */,
 				27E92BB22661986400B612D2 /* LocationMonitor.swift in Sources */,
+				27F0EB3D266E9ACA00FFA668 /* LocationPermissionView.swift in Sources */,
 				27E92BAF266179AB00B612D2 /* Badge.swift in Sources */,
+				27F0EB45266EB89600FFA668 /* NotesList.swift in Sources */,
 				27E92B91266072BD00B612D2 /* MapView.swift in Sources */,
 				27E92B64266052FE00B612D2 /* WalkaboutSwiftApp.swift in Sources */,
 				27E92BA326614D4800B612D2 /* FavoriteButton.swift in Sources */,
 				27E92BA726616DA200B612D2 /* HexagonParameters.swift in Sources */,
+				27F0EB3F266E9EBF00FFA668 /* AppColors.swift in Sources */,
 				27E92BAD2661792100B612D2 /* RotatedBadgeSymbol.swift in Sources */,
 				27E92BAB2661740A00B612D2 /* BadgeSymbol.swift in Sources */,
 				27E92B8F2660590E00B612D2 /* CircleImage.swift in Sources */,
@@ -376,6 +395,7 @@
 				27E92B9D26607BBC00B612D2 /* LandmarkRow.swift in Sources */,
 				27E92B9726607A4C00B612D2 /* ModelData.swift in Sources */,
 				27E92BB62662D7E700B612D2 /* WalkaboutRegion.swift in Sources */,
+				27F0EB43266EA72D00FFA668 /* WalkaboutNavigation.swift in Sources */,
 				27E92B9F26607CBE00B612D2 /* LandmarksList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

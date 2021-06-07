@@ -11,7 +11,11 @@ import SwiftUI
 struct WalkaboutSwiftApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          ContentView().onAppear {
+            print("content view appear")
+          }.onDisappear {
+            print("content view disappear")
+          }
         }
     }
 }
