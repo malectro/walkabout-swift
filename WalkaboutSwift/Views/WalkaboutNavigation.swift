@@ -29,7 +29,7 @@ struct WalkaboutNavigation: View {
             NotesList(regions: regionData.regions).frame(width: width)
             Text("view 2").frame(width: width)
           }.offset(x: page == .list ? 0 : -width).animation(.easeInOut)
-        }.padding(.vertical, Spacing.large)
+        }
       }
     }.background(AppColors.bg.ignoresSafeArea()).foregroundColor(AppColors.fg)
   }

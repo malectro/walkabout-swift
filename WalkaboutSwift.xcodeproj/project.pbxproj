@@ -35,6 +35,7 @@
 		27F0EB41266EA40800FFA668 /* Walkabout.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F0EB40266EA40800FFA668 /* Walkabout.strings */; };
 		27F0EB43266EA72D00FFA668 /* WalkaboutNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F0EB42266EA72D00FFA668 /* WalkaboutNavigation.swift */; };
 		27F0EB45266EB89600FFA668 /* NotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F0EB44266EB89600FFA668 /* NotesList.swift */; };
+		27F0EB47266ED54B00FFA668 /* RegionsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F0EB46266ED54B00FFA668 /* RegionsMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		27F0EB40266EA40800FFA668 /* Walkabout.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Walkabout.strings; sourceTree = "<group>"; };
 		27F0EB42266EA72D00FFA668 /* WalkaboutNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutNavigation.swift; sourceTree = "<group>"; };
 		27F0EB44266EB89600FFA668 /* NotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesList.swift; sourceTree = "<group>"; };
+		27F0EB46266ED54B00FFA668 /* RegionsMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				27E92B65266052FE00B612D2 /* ContentView.swift */,
 				27F0EB42266EA72D00FFA668 /* WalkaboutNavigation.swift */,
 				27F0EB44266EB89600FFA668 /* NotesList.swift */,
+				27F0EB46266ED54B00FFA668 /* RegionsMap.swift */,
 				27F0EB3C266E9ACA00FFA668 /* LocationPermissionView.swift */,
 				27F0EB3E266E9EBF00FFA668 /* AppColors.swift */,
 				27E92BA526616A7500B612D2 /* Lib */,
@@ -382,6 +385,7 @@
 				27E92BAF266179AB00B612D2 /* Badge.swift in Sources */,
 				27F0EB45266EB89600FFA668 /* NotesList.swift in Sources */,
 				27E92B91266072BD00B612D2 /* MapView.swift in Sources */,
+				27F0EB47266ED54B00FFA668 /* RegionsMap.swift in Sources */,
 				27E92B64266052FE00B612D2 /* WalkaboutSwiftApp.swift in Sources */,
 				27E92BA326614D4800B612D2 /* FavoriteButton.swift in Sources */,
 				27E92BA726616DA200B612D2 /* HexagonParameters.swift in Sources */,

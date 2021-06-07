@@ -13,9 +13,9 @@ struct NotesList: View {
   var body: some View {
     ScrollView {
       VStack(alignment: .leading, spacing: 40) {
-      ForEach(regions) {region in
-        RegionListItem(region: region)
-      }
+        ForEach(regions) {region in
+          RegionListItem(region: region)
+        }
       }
     }
   }
