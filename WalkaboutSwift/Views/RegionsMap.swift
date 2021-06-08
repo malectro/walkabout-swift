@@ -16,6 +16,7 @@ struct RegionsMap: View {
   @State var selectedRegion: WalkaboutRegion?
 
   var regions: [WalkaboutRegion]
+  var onSelect: (WalkaboutRegion) -> Void
 
   var body: some View {
     Map(
@@ -23,16 +24,29 @@ struct RegionsMap: View {
       annotationItems: regions
     ) {
       region in
-      MapAnnotation(coordinate: region.locationCoordinate, anchorPoint: CGPoint(x: 0, y: 1)) {
+      MapAnnotation(
+        coordinate: region.locationCoordinate, anchorPoint: CGPoint(x: 0, y: 1)
+      ) {
         ZStack(alignment: .center) {
-          Circle().fill(AppColors.fg)
-          Circle().stroke(lineWidth: 1).size(width: 10, height: 10)
+          Circle().fill(AppColors.fg).frame(width: 10, height: 10).overlay(
+            Circle().stroke(AppColors.bg, lineWidth: 1)
+          ).shadow(radius: 4)
           if region == selectedRegion {
-            region.image.resizable().aspectRatio(contentMode: .fill).clipped().frame(width: 40, height: 20).offset(y: -40)
+            region.image.resizable().aspectRatio(
+              contentMode: .fill
+            ).frame(
+              width: 40, height: 30
+            ).cornerRadius(4).offset(y: -30).shadow(radius: 10).overlay(
+              RoundedRectangle(cornerRadius: 4).offset(y: -30).stroke(
+                AppColors.fg, lineWidth: 2
+              )
+            )
           }
         }.frame(width: 10, height: 10).onTapGesture {
+          if selectedRegion == region {
+            onSelect(region)
+          }
           selectedRegion = region
-          print("region is \(selectedRegion)")
         }
       }
     }
@@ -43,6 +57,8 @@ struct RegionsMap_Previews: PreviewProvider {
   static var regionsData: RegionData = RegionData()
 
   static var previews: some View {
-    RegionsMap(regions: regionsData.regions)
+    RegionsMap(regions: regionsData.regions) { region in
+      print("Selected \(region)")
+    }
   }
 }

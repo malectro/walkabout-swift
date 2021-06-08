@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271EEBA9266FE5580071DAB6 /* RegionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271EEBA8266FE5580071DAB6 /* RegionDetail.swift */; };
 		27E92B64266052FE00B612D2 /* WalkaboutSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92B63266052FE00B612D2 /* WalkaboutSwiftApp.swift */; };
 		27E92B66266052FE00B612D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92B65266052FE00B612D2 /* ContentView.swift */; };
 		27E92B682660530000B612D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E92B672660530000B612D2 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		271EEBA8266FE5580071DAB6 /* RegionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetail.swift; sourceTree = "<group>"; };
 		27E92B60266052FE00B612D2 /* WalkaboutSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkaboutSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E92B63266052FE00B612D2 /* WalkaboutSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutSwiftApp.swift; sourceTree = "<group>"; };
 		27E92B65266052FE00B612D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				27E92B65266052FE00B612D2 /* ContentView.swift */,
 				27F0EB42266EA72D00FFA668 /* WalkaboutNavigation.swift */,
 				27F0EB44266EB89600FFA668 /* NotesList.swift */,
+				271EEBA8266FE5580071DAB6 /* RegionDetail.swift */,
 				27F0EB46266ED54B00FFA668 /* RegionsMap.swift */,
 				27F0EB3C266E9ACA00FFA668 /* LocationPermissionView.swift */,
 				27F0EB3E266E9EBF00FFA668 /* AppColors.swift */,
@@ -399,6 +402,7 @@
 				27E92B9D26607BBC00B612D2 /* LandmarkRow.swift in Sources */,
 				27E92B9726607A4C00B612D2 /* ModelData.swift in Sources */,
 				27E92BB62662D7E700B612D2 /* WalkaboutRegion.swift in Sources */,
+				271EEBA9266FE5580071DAB6 /* RegionDetail.swift in Sources */,
 				27F0EB43266EA72D00FFA668 /* WalkaboutNavigation.swift in Sources */,
 				27E92B9F26607CBE00B612D2 /* LandmarksList.swift in Sources */,
 			);

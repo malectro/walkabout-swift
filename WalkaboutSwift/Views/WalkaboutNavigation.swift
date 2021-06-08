@@ -12,11 +12,13 @@ struct WalkaboutNavigation: View {
     case list
     case map
   }
-  
+
   @State private var page: Page = .list
+  @State private var selectedRegion: String?
   @StateObject private var regionData: RegionData = RegionData()
-  
+
   var body: some View {
+    NavigationView {
     VStack {
       GeometryReader { geometryProxy in
         let width = geometryProxy.size.width
@@ -24,23 +26,38 @@ struct WalkaboutNavigation: View {
           HStack(spacing: Spacing.large) {
             NavButton(page: $page, name: .list, label: "List")
             NavButton(page: $page, name: .map, label: "Map")
-          }.font(.system(size: 24, weight: .bold)).padding(.horizontal, Spacing.large)
+          }.font(.system(size: 24, weight: .bold)).padding(
+            .horizontal, Spacing.large
+          )
           HStack {
-            NotesList(regions: regionData.regions).frame(width: width)
-            Text("view 2").frame(width: width)
+            HStack {
+              NotesList(
+                regions: regionData.regions,
+                selectedRegion: $selectedRegion
+              )
+            }.frame(width: width - Spacing.large * 2).padding(
+              .horizontal, Spacing.large
+            )
+            HStack {
+              RegionsMap(regions: regionData.regions, onSelect: {region in
+                selectedRegion = region.id
+              })
+            }.frame(width: width)
           }.offset(x: page == .list ? 0 : -width).animation(.easeInOut)
         }
       }
     }.background(AppColors.bg.ignoresSafeArea()).foregroundColor(AppColors.fg)
+        .navigationBarHidden(true)
+    }
   }
 
   struct NavButton: View {
     @Binding var page: Page
     var name: Page
     var label: String
-    
+
     var body: some View {
-      Button(label, action: {page = name}).foregroundColor(
+      Button(label, action: { page = name }).foregroundColor(
         page == name ? AppColors.fg : .gray
       )
     }

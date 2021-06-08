@@ -1,0 +1,6 @@
+--indent 2
+--smarttabs disabled
+--maxwidth 80
+
+--enable wrap
+# --enable consecutiveSpaces, duplicateImports
