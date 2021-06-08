@@ -20,7 +20,7 @@ struct NotesList: View {
             RegionListItem(region: region)
           }
            */
-          NavigationLink(destination: RegionDetail(), tag: region.id, selection: $selectedRegion) {
+          NavigationLink(destination: RegionDetail(region: region), tag: region.id, selection: $selectedRegion) {
             RegionListItem(region: region)
           }
         }

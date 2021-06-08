@@ -16,7 +16,7 @@ struct ContentView: View {
     case .notDetermined:
       LocationPermissionView(action: locationMonitor.requestPermission)
     case .authorized, .authorizedAlways, .authorizedWhenInUse:
-      GotPermission().environmentObject(locationMonitor)
+      WalkaboutNavigation().environmentObject(locationMonitor)
         .onAppear { print("got permission appear") }
         .onDisappear { print("got permission disappear") }
     default:

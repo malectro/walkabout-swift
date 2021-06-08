@@ -35,14 +35,12 @@ struct WalkaboutNavigation: View {
                 regions: regionData.regions,
                 selectedRegion: $selectedRegion
               )
-            }.frame(width: width - Spacing.large * 2).padding(
+            }.frame(width: max(width - Spacing.large * 2, 0)).padding(
               .horizontal, Spacing.large
             )
-            HStack {
               RegionsMap(regions: regionData.regions, onSelect: {region in
                 selectedRegion = region.id
-              })
-            }.frame(width: width)
+              }).frame(width: width)
           }.offset(x: page == .list ? 0 : -width).animation(.easeInOut)
         }
       }

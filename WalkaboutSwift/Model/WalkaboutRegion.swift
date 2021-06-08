@@ -13,6 +13,10 @@ import CoreLocation
 final class RegionData: ObservableObject {
   @Published var regions: [WalkaboutRegion] = load("regions.json")
   
+  func getRegion(id: String) -> WalkaboutRegion? {
+    regions.first(where: {region in region.id == id})
+  }
+  
   func getRegionsNearLocation(location: CLLocation) -> Array<WalkaboutRegion> {
     return regions.filter { region in
       location.distance(from: region.location) < region.radius
