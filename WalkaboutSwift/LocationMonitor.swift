@@ -41,7 +41,6 @@ class LocationMonitor: NSObject, CLLocationManagerDelegate, ObservableObject {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     error = nil
     currentLocation = locations.first
-    print("got new location")
   }
   
   func startUpdatingLocation() {

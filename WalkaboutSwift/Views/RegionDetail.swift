@@ -78,6 +78,10 @@ struct RegionDetail: View {
     if !userRegion.isUnlocked {
       var isNear: Bool
       if let currentLocation = currentLocation {
+        print("attempting to unlock location")
+        print("currently at \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
+        print("region at \(region.locationCoordinate.latitude) \(region.locationCoordinate.longitude)")
+        print("distance \(currentLocation.distance(from: region.location))")
         isNear = region.containsLocation(currentLocation)
       } else {
         isNear = false
