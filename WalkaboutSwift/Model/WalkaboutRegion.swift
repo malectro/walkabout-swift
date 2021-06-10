@@ -46,4 +46,8 @@ struct WalkaboutRegion : Hashable, Codable, Identifiable {
     var latitude: Double
     var longitude: Double
   }
+  
+  func containsLocation(_ otherLocation: CLLocation) -> Bool {
+    location.distance(from: otherLocation) < radius
+  }
 }

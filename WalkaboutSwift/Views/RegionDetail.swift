@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct RegionDetail: View {
   var region: WalkaboutRegion
 
   @Environment(\.managedObjectContext) private var viewContext
+  @EnvironmentObject var locationMonitor: LocationMonitor
+  
+  var currentLocation: CLLocation? {
+    locationMonitor.currentLocation
+  }
 
   private var fetchRequest: FetchRequest<UserRegion>
+  
 
   init(region: WalkaboutRegion) {
     self.region = region
@@ -64,9 +71,26 @@ struct RegionDetail: View {
     } else {
       userRegion = UserRegion(context: viewContext)
       userRegion.regionId = region.id
+      userRegion.isUnlocked = false
     }
-    userRegion.isUnlocked = !userRegion.isUnlocked
-    print("isUnlocked \(userRegion.isUnlocked)")
+    
+    
+    if !userRegion.isUnlocked {
+      var isNear: Bool
+      if let currentLocation = currentLocation {
+        isNear = region.containsLocation(currentLocation)
+      } else {
+        isNear = false
+      }
+      
+     if isNear {
+       userRegion.isUnlocked = true
+     } else {
+       print("cannot unlock location")
+     }
+    } else {
+      userRegion.isUnlocked = false
+    }
 
     do {
       try viewContext.save()
