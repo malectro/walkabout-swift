@@ -38,9 +38,11 @@ struct WalkaboutNavigation: View {
             }.frame(width: max(width - Spacing.large * 2, 0)).padding(
               .horizontal, Spacing.large
             )
+            /*
               RegionsMap(regions: regionData.regions, onSelect: {region in
                 selectedRegion = region.id
               }).frame(width: width)
+             */
           }.offset(x: page == .list ? 0 : -width).animation(.easeInOut)
         }
       }

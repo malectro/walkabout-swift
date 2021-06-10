@@ -9,13 +9,11 @@ import SwiftUI
 
 @main
 struct WalkaboutSwiftApp: App {
+  let persistenceController = PersistenceController.shared
+  
     var body: some Scene {
         WindowGroup {
-          ContentView().onAppear {
-            print("content view appear")
-          }.onDisappear {
-            print("content view disappear")
-          }
+          ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

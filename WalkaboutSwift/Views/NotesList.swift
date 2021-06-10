@@ -43,7 +43,12 @@ struct RegionListItem: View {
   
   var body: some View {
     VStack(alignment: .leading) {
-      region.image.frame(height: 120).clipped().aspectRatio(contentMode: .fill)
+      region.image.resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(height: 120, alignment: .center).clipped()
+      /*
+       region.image.frame(maxWidth: .infinity, maxHeight: 120).clipped().aspectRatio(contentMode: .fill)
+        */
       Text(region.name)
     }
   }

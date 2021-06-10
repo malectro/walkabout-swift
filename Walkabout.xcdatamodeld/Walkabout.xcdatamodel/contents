@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19141.11" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="UserRegion" representedClassName="UserRegion" syncable="YES" codeGenerationType="class">
+        <attribute name="isUnlocked" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="regionId" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="UserRegion" positionX="-54" positionY="-9" width="128" height="59"/>
+    </elements>
+</model>

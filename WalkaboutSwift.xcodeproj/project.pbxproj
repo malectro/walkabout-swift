@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		271EEBA9266FE5580071DAB6 /* RegionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271EEBA8266FE5580071DAB6 /* RegionDetail.swift */; };
+		27808714267292D8004FB9E1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27808713267292D8004FB9E1 /* Persistence.swift */; };
+		2780871B26729839004FB9E1 /* Walkabout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2780871926729839004FB9E1 /* Walkabout.xcdatamodeld */; };
 		27E92B64266052FE00B612D2 /* WalkaboutSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92B63266052FE00B612D2 /* WalkaboutSwiftApp.swift */; };
 		27E92B66266052FE00B612D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92B65266052FE00B612D2 /* ContentView.swift */; };
 		27E92B682660530000B612D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E92B672660530000B612D2 /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		271EEBA8266FE5580071DAB6 /* RegionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetail.swift; sourceTree = "<group>"; };
+		27808713267292D8004FB9E1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		2780871A26729839004FB9E1 /* Walkabout.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Walkabout.xcdatamodel; sourceTree = "<group>"; };
 		27E92B60266052FE00B612D2 /* WalkaboutSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkaboutSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E92B63266052FE00B612D2 /* WalkaboutSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutSwiftApp.swift; sourceTree = "<group>"; };
 		27E92B65266052FE00B612D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				27E92B9626607A4C00B612D2 /* ModelData.swift */,
 				27E92B94266078FB00B612D2 /* Landmark.swift */,
 				27E92BB52662D7E700B612D2 /* WalkaboutRegion.swift */,
+				27808713267292D8004FB9E1 /* Persistence.swift */,
+				2780871926729839004FB9E1 /* Walkabout.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,7 +406,9 @@
 				27E92BA926616E7C00B612D2 /* BadgeBackground.swift in Sources */,
 				27E92B95266078FB00B612D2 /* Landmark.swift in Sources */,
 				27E92B9D26607BBC00B612D2 /* LandmarkRow.swift in Sources */,
+				2780871B26729839004FB9E1 /* Walkabout.xcdatamodeld in Sources */,
 				27E92B9726607A4C00B612D2 /* ModelData.swift in Sources */,
+				27808714267292D8004FB9E1 /* Persistence.swift in Sources */,
 				27E92BB62662D7E700B612D2 /* WalkaboutRegion.swift in Sources */,
 				271EEBA9266FE5580071DAB6 /* RegionDetail.swift in Sources */,
 				27F0EB43266EA72D00FFA668 /* WalkaboutNavigation.swift in Sources */,
@@ -566,7 +574,7 @@
 				DEVELOPMENT_TEAM = Q6NC64Q7HC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WalkaboutSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,7 +582,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kylejwarren.WalkaboutSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -588,7 +596,7 @@
 				DEVELOPMENT_TEAM = Q6NC64Q7HC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WalkaboutSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +604,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kylejwarren.WalkaboutSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -724,6 +732,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2780871926729839004FB9E1 /* Walkabout.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2780871A26729839004FB9E1 /* Walkabout.xcdatamodel */,
+			);
+			currentVersion = 2780871A26729839004FB9E1 /* Walkabout.xcdatamodel */;
+			name = Walkabout.xcdatamodeld;
+			path = ../../Walkabout.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 27E92B58266052FE00B612D2 /* Project object */;
 }
