@@ -49,6 +49,7 @@ struct RegionDetail: View {
               Spacer()
               Button("Lock", action: toggle)
             }
+            AudioPlayer(name: "voice-log-test")
           } else {
             HStack {
               Text("Encrypted")
@@ -56,7 +57,6 @@ struct RegionDetail: View {
               Button("Unlock", action: toggle)
             }
           }
-          AudioPlayer(name: "voice-log-test")
           Spacer()
         }.foregroundColor(AppColors.fg).padding(Spacing.large)
       }
