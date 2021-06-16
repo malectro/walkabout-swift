@@ -56,6 +56,7 @@ struct RegionDetail: View {
               Button("Unlock", action: toggle)
             }
           }
+          AudioPlayer(name: "voice-log-test")
           Spacer()
         }.foregroundColor(AppColors.fg).padding(Spacing.large)
       }

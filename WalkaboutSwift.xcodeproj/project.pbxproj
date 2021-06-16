@@ -10,6 +10,8 @@
 		271EEBA9266FE5580071DAB6 /* RegionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271EEBA8266FE5580071DAB6 /* RegionDetail.swift */; };
 		27808714267292D8004FB9E1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27808713267292D8004FB9E1 /* Persistence.swift */; };
 		2780871B26729839004FB9E1 /* Walkabout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2780871926729839004FB9E1 /* Walkabout.xcdatamodeld */; };
+		27E01162267A5CEF00D9435C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E01161267A5CEF00D9435C /* AudioPlayer.swift */; };
+		27E01164267A754D00D9435C /* voice-log-test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 27E01163267A754D00D9435C /* voice-log-test.m4a */; };
 		27E92B64266052FE00B612D2 /* WalkaboutSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92B63266052FE00B612D2 /* WalkaboutSwiftApp.swift */; };
 		27E92B66266052FE00B612D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E92B65266052FE00B612D2 /* ContentView.swift */; };
 		27E92B682660530000B612D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E92B672660530000B612D2 /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		271EEBA8266FE5580071DAB6 /* RegionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetail.swift; sourceTree = "<group>"; };
 		27808713267292D8004FB9E1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2780871A26729839004FB9E1 /* Walkabout.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Walkabout.xcdatamodel; sourceTree = "<group>"; };
+		27E01161267A5CEF00D9435C /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		27E01163267A754D00D9435C /* voice-log-test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "voice-log-test.m4a"; sourceTree = "<group>"; };
 		27E92B60266052FE00B612D2 /* WalkaboutSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkaboutSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E92B63266052FE00B612D2 /* WalkaboutSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutSwiftApp.swift; sourceTree = "<group>"; };
 		27E92B65266052FE00B612D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				27E92B9926607B8600B612D2 /* Views */,
 				27E92B9A26607B8F00B612D2 /* Model */,
 				27E92B672660530000B612D2 /* Assets.xcassets */,
+				27E01163267A754D00D9435C /* voice-log-test.m4a */,
 				27E92B6C2660530000B612D2 /* Info.plist */,
 				27E92B692660530000B612D2 /* Preview Content */,
 				27F0EB40266EA40800FFA668 /* Walkabout.strings */,
@@ -241,6 +246,7 @@
 				27E92B8E2660590E00B612D2 /* CircleImage.swift */,
 				27E92B90266072BD00B612D2 /* MapView.swift */,
 				27E92BB026617D7200B612D2 /* Badges */,
+				27E01161267A5CEF00D9435C /* AudioPlayer.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27E01164267A754D00D9435C /* voice-log-test.m4a in Resources */,
 				27F0EB41266EA40800FFA668 /* Walkabout.strings in Resources */,
 				27E92B6B2660530000B612D2 /* Preview Assets.xcassets in Resources */,
 				27E92B682660530000B612D2 /* Assets.xcassets in Resources */,
@@ -399,6 +406,7 @@
 				27E92BA326614D4800B612D2 /* FavoriteButton.swift in Sources */,
 				27E92BA726616DA200B612D2 /* HexagonParameters.swift in Sources */,
 				27F0EB3F266E9EBF00FFA668 /* AppColors.swift in Sources */,
+				27E01162267A5CEF00D9435C /* AudioPlayer.swift in Sources */,
 				27E92BAD2661792100B612D2 /* RotatedBadgeSymbol.swift in Sources */,
 				27E92BAB2661740A00B612D2 /* BadgeSymbol.swift in Sources */,
 				27E92B8F2660590E00B612D2 /* CircleImage.swift in Sources */,
