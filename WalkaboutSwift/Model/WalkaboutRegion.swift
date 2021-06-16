@@ -50,4 +50,6 @@ struct WalkaboutRegion : Hashable, Codable, Identifiable {
   func containsLocation(_ otherLocation: CLLocation) -> Bool {
     location.distance(from: otherLocation) < radius
   }
+  
+  var audioFile: String?
 }

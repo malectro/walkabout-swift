@@ -49,7 +49,9 @@ struct RegionDetail: View {
               Spacer()
               Button("Lock", action: toggle)
             }
-            AudioPlayer(name: "voice-log-test")
+            if let name = region.audioFile {
+              AudioPlayer(name: name)
+            }
           } else {
             HStack {
               Text("Encrypted")
