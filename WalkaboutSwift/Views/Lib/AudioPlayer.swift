@@ -91,9 +91,8 @@ class ProgressObserver: ObservableObject {
             1,
             preferredTimescale: 1
           ))
-        self
-          .currentProgress = duration > 0 ?
-          CMTimeGetSeconds(player.currentTime()) / duration : 0
+        self.currentProgress = CGFloat(duration > 0.0 ?
+          CMTimeGetSeconds(player.currentTime()) / duration : 0.0)
       }
     }
   }

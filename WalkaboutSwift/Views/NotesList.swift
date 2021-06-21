@@ -11,19 +11,22 @@ struct NotesList: View {
   var regions: [WalkaboutRegion]
   @Binding var selectedRegion: String?
   @EnvironmentObject var regionsData: RegionData
+  
+  @FetchRequest(entity: UserRegion.entity(), sortDescriptors: []) var userRegions: FetchedResults<UserRegion>
+  
+  var userRegionsDict: Dictionary<String, UserRegion> {
+    Dictionary(uniqueKeysWithValues: userRegions.map { userRegion in
+          (userRegion.regionId ?? "bad-key", userRegion)
+        })
+  }
 
   
   var body: some View {
     ScrollView {
       VStack(alignment: .leading, spacing: 40) {
         ForEach(regions) {region in
-          /*
-          NavigationLink(tag: region.id, selection: $selectedRegion, destination: RegionDetail()) {
-            RegionListItem(region: region)
-          }
-           */
           NavigationLink(destination: RegionDetail(region: region).environmentObject(regionsData), tag: region.id, selection: $selectedRegion) {
-            RegionListItem(region: region)
+            RegionListItem(region: region, isUnlocked: userRegionsDict[region.id]?.isUnlocked ?? false)
           }
         }
       }
@@ -42,6 +45,7 @@ struct NotesList_Previews: PreviewProvider {
 
 struct RegionListItem: View {
   var region: WalkaboutRegion
+  var isUnlocked: Bool
   
   var body: some View {
     VStack(alignment: .leading) {
@@ -51,7 +55,15 @@ struct RegionListItem: View {
       /*
        region.image.frame(maxWidth: .infinity, maxHeight: 120).clipped().aspectRatio(contentMode: .fill)
         */
-      Text(region.name)
+      HStack {
+        Text(region.name)
+        Spacer()
+        if isUnlocked {
+          Text("Decrypted")
+        } else {
+          Text("Encrypted")
+        }
+      }
     }
   }
 }

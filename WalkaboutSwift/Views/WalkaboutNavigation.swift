@@ -17,13 +17,16 @@ struct WalkaboutNavigation: View {
   @State private var selectedRegion: String?
   @StateObject private var regionData: RegionData = RegionData()
   
-  @Environment(\.managedObjectContext) private var viewContext
   @FetchRequest(entity: UserRegion.entity(), sortDescriptors: []) var userRegions: FetchedResults<UserRegion>
   
+  var userRegionsDict: Dictionary<String, UserRegion> {
+    Dictionary(uniqueKeysWithValues: userRegions.map { userRegion in
+          (userRegion.regionId ?? "bad-key", userRegion)
+        })
+  }
+  
   var revealedRegions: [WalkaboutRegion] {
-    let dict = Dictionary(uniqueKeysWithValues: userRegions.map { userRegion in
-      (userRegion.regionId ?? "bad-key", userRegion)
-    })
+    let dict = userRegionsDict
     return regionData.regions.filter() { region in
       region.revealed || (dict[region.id]?.isRevealed ?? false)
     }

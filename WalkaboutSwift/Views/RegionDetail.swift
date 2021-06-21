@@ -44,10 +44,6 @@ struct RegionDetail: View {
       userRegion.regionId == region.id
     }
     
-    if userRegion != nil {
-      print("userregion defined")
-    }
-
     return GeometryReader { _ in
       ScrollView {
         VStack(alignment: .leading, spacing: Spacing.medium) {
@@ -61,6 +57,9 @@ struct RegionDetail: View {
             }
             if let name = region.audioFile {
               AudioPlayer(name: name)
+            }
+            if let text = region.text {
+              Text(text)
             }
           } else {
             HStack {
