@@ -1,14 +1,17 @@
 [
   {
-    "id": "kyle-home",
-    "name": "Home",
+    "id": "tower-park",
+    "name": "Tower Park",
     "imageName": "tower-park",
     "coordinates": {
       "latitude": 37.7737191532,
       "longitude": -122.4463025372918
     },
     "radius": 10,
-    "audioFile": "voice-log-test"
+    "text": "The fog's just hanging there like a shroud. You'd think it'd be moving – the wind pounding like it usually does this high up. It's so thick that I can barely make out the structure at the base of the tower.",
+    "audioFile": "voice-log-test",
+    "revealed": true,
+    "reveals": ["resevoir", "facility"]
   },
   {
     "id": "panhandle",
@@ -18,7 +21,8 @@
       "latitude": 37.772465,
       "longitude": -122.445739
     },
-    "radius": 20
+    "radius": 20,
+    "revealed": true
   },
   {
     "id": "ritual",
@@ -28,6 +32,29 @@
       "latitude": 37.770498,
       "longitude": -122.443773
     },
-    "radius": 10
+    "radius": 10,
+    "revealed": true
+  },
+  {
+    "id": "resevoir",
+    "name": "Resevoir",
+    "imageName": "icybay",
+    "coordinates": {
+      "latitude": 37.770498,
+      "longitude": -122.443773
+    },
+    "radius": 10,
+    "revealed": false
+  },
+  {
+    "id": "facility",
+    "name": "Facility",
+    "imageName": "icybay",
+    "coordinates": {
+      "latitude": 37.770498,
+      "longitude": -122.443773
+    },
+    "radius": 10,
+    "revealed": false
   }
 ]

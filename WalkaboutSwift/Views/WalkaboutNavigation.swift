@@ -16,6 +16,18 @@ struct WalkaboutNavigation: View {
   @State private var page: Page = .list
   @State private var selectedRegion: String?
   @StateObject private var regionData: RegionData = RegionData()
+  
+  @Environment(\.managedObjectContext) private var viewContext
+  @FetchRequest(entity: UserRegion.entity(), sortDescriptors: []) var userRegions: FetchedResults<UserRegion>
+  
+  var revealedRegions: [WalkaboutRegion] {
+    let dict = Dictionary(uniqueKeysWithValues: userRegions.map { userRegion in
+      (userRegion.regionId ?? "bad-key", userRegion)
+    })
+    return regionData.regions.filter() { region in
+      region.revealed || (dict[region.id]?.isRevealed ?? false)
+    }
+  }
 
   var body: some View {
     NavigationView {
@@ -32,9 +44,9 @@ struct WalkaboutNavigation: View {
           HStack {
             HStack {
               NotesList(
-                regions: regionData.regions,
+                regions: revealedRegions,
                 selectedRegion: $selectedRegion
-              )
+              ).environmentObject(regionData)
             }.frame(width: max(width - Spacing.large * 2, 0)).padding(
               .horizontal, Spacing.large
             )

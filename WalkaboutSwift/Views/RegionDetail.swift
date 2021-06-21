@@ -13,10 +13,13 @@ struct RegionDetail: View {
 
   @Environment(\.managedObjectContext) private var viewContext
   @EnvironmentObject var locationMonitor: LocationMonitor
+  @EnvironmentObject var regionsData: RegionData
   
   var currentLocation: CLLocation? {
     locationMonitor.currentLocation
   }
+  
+  @FetchRequest(entity: UserRegion.entity(), sortDescriptors: []) var userRegions: FetchedResults<UserRegion>
 
   private var fetchRequest: FetchRequest<UserRegion>
   
@@ -36,9 +39,16 @@ struct RegionDetail: View {
 //  @FetchRequest(predicate: NSPredicate(format: "regionId = %@", arguments: [region.id]))
 
   var body: some View {
-    let userRegion = fetchRequest.wrappedValue.first
+    //let userRegion = fetchRequest.wrappedValue.first
+    let userRegion = userRegions.first { userRegion in
+      userRegion.regionId == region.id
+    }
+    
+    if userRegion != nil {
+      print("userregion defined")
+    }
 
-    GeometryReader { _ in
+    return GeometryReader { _ in
       ScrollView {
         VStack(alignment: .leading, spacing: Spacing.medium) {
           Text(region.name).font(.title)
@@ -66,6 +76,47 @@ struct RegionDetail: View {
       .background(AppColors.bg.ignoresSafeArea())
   }
 
+  /*
+  func toggle() {
+    let userRegion = regionsData.getOrCreateUserRegion(id: region.id)
+    if !userRegion.isUnlocked {
+      /*
+      var isNear: Bool
+      if let currentLocation = currentLocation {
+        isNear = region.containsLocation(currentLocation)
+      } else {
+        isNear = false
+      }
+       */
+      let isNear = true
+      
+     if isNear {
+       regionsData.unlockRegion(id: region.id)
+     } else {
+       print("cannot unlock location")
+     }
+    } else {
+      regionsData.lockRegion(id: region.id)
+    }
+  }
+  */
+
+  func getOrCreateUserRegion(id: String) -> UserRegion {
+    let userRegion = userRegions.first { userRegion in
+      userRegion.regionId == id
+    }
+    
+    if let userRegion = userRegion {
+      return userRegion
+    } else {
+      let userRegion = UserRegion(context: viewContext)
+      userRegion.regionId = id
+      userRegion.isUnlocked = false
+      userRegion.isRevealed = false
+      return userRegion
+    }
+  }
+
   func toggle() {
     let dbUserRegion = fetchRequest.wrappedValue.first
     var userRegion: UserRegion
@@ -79,24 +130,31 @@ struct RegionDetail: View {
     
     
     if !userRegion.isUnlocked {
+      /*
       var isNear: Bool
       if let currentLocation = currentLocation {
-        print("attempting to unlock location")
-        print("currently at \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
-        print("region at \(region.locationCoordinate.latitude) \(region.locationCoordinate.longitude)")
-        print("distance \(currentLocation.distance(from: region.location))")
         isNear = region.containsLocation(currentLocation)
       } else {
         isNear = false
       }
+       */
+      let isNear = true
       
      if isNear {
        userRegion.isUnlocked = true
+       for id in (region.reveals ?? []) {
+         let userRegion = getOrCreateUserRegion(id: id)
+         userRegion.isRevealed = true
+       }
      } else {
        print("cannot unlock location")
      }
     } else {
       userRegion.isUnlocked = false
+      for id in (region.reveals ?? []) {
+        let userRegion = getOrCreateUserRegion(id: id)
+        userRegion.isRevealed = false
+      }
     }
 
     do {
