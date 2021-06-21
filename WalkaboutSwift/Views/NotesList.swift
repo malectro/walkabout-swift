@@ -25,7 +25,7 @@ struct NotesList: View {
     ScrollView {
       VStack(alignment: .leading, spacing: 40) {
         ForEach(regions) {region in
-          NavigationLink(destination: RegionDetail(region: region).environmentObject(regionsData), tag: region.id, selection: $selectedRegion) {
+          NavigationLink(destination: RegionDetail(region: region, onBack: {selectedRegion = nil}).environmentObject(regionsData), tag: region.id, selection: $selectedRegion) {
             RegionListItem(region: region, isUnlocked: userRegionsDict[region.id]?.isUnlocked ?? false)
           }
         }
@@ -39,6 +39,7 @@ struct NotesList_Previews: PreviewProvider {
   
     static var previews: some View {
       NotesList(regions: regionData.regions, selectedRegion: .constant("hi"))
+        .environmentObject(regionData)
     }
 }
 

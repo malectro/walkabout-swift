@@ -41,7 +41,7 @@ struct WalkaboutNavigation: View {
           HStack(spacing: Spacing.large) {
             NavButton(page: $page, name: .list, label: "List")
             NavButton(page: $page, name: .map, label: "Map")
-          }.font(.system(size: 24, weight: .bold)).padding(
+          }.font(Fonts.title).padding(
             .horizontal, Spacing.large
           )
           HStack {
@@ -53,11 +53,9 @@ struct WalkaboutNavigation: View {
             }.frame(width: max(width - Spacing.large * 2, 0)).padding(
               .horizontal, Spacing.large
             )
-            /*
               RegionsMap(regions: regionData.regions, onSelect: {region in
                 selectedRegion = region.id
               }).frame(width: width)
-             */
           }.offset(x: page == .list ? 0 : -width).animation(.easeInOut)
         }
       }

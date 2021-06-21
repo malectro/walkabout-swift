@@ -10,6 +10,7 @@ import CoreLocation
 
 struct RegionDetail: View {
   var region: WalkaboutRegion
+  var onBack: () -> Void
 
   @Environment(\.managedObjectContext) private var viewContext
   @EnvironmentObject var locationMonitor: LocationMonitor
@@ -20,34 +21,27 @@ struct RegionDetail: View {
   }
   
   @FetchRequest(entity: UserRegion.entity(), sortDescriptors: []) var userRegions: FetchedResults<UserRegion>
-
-  private var fetchRequest: FetchRequest<UserRegion>
   
-
-  init(region: WalkaboutRegion) {
-    self.region = region
-    fetchRequest = FetchRequest(
-      entity: UserRegion.entity(),
-      sortDescriptors: [],
-      predicate: NSPredicate(
-        format: "regionId = %@",
-        region.id
-      )
-    )
+  var userRegion: UserRegion? {
+    userRegions.first { userRegion in
+          userRegion.regionId == region.id
+        }
   }
 
-//  @FetchRequest(predicate: NSPredicate(format: "regionId = %@", arguments: [region.id]))
-
   var body: some View {
-    //let userRegion = fetchRequest.wrappedValue.first
-    let userRegion = userRegions.first { userRegion in
-      userRegion.regionId == region.id
-    }
-    
     return GeometryReader { _ in
       ScrollView {
         VStack(alignment: .leading, spacing: Spacing.medium) {
-          Text(region.name).font(.title)
+          HStack {
+            Spacer().overlay(
+              Button(action: onBack) {
+                Image(systemName: "chevron.backward")
+              },
+              alignment: .leading
+            )
+            Text(region.name).font(Fonts.title)
+            Spacer()
+          }
           region.image.resizable().aspectRatio(contentMode: .fit)
           if userRegion?.isUnlocked ?? false {
             HStack {
@@ -69,9 +63,9 @@ struct RegionDetail: View {
             }
           }
           Spacer()
-        }.foregroundColor(AppColors.fg).padding(Spacing.large)
+        }.foregroundColor(AppColors.fg).padding(.horizontal, Spacing.large)
       }
-    }.navigationBarTitleDisplayMode(.inline)
+    }.navigationBarHidden(true)
       .background(AppColors.bg.ignoresSafeArea())
   }
 
@@ -101,10 +95,6 @@ struct RegionDetail: View {
   */
 
   func getOrCreateUserRegion(id: String) -> UserRegion {
-    let userRegion = userRegions.first { userRegion in
-      userRegion.regionId == id
-    }
-    
     if let userRegion = userRegion {
       return userRegion
     } else {
@@ -117,7 +107,7 @@ struct RegionDetail: View {
   }
 
   func toggle() {
-    let dbUserRegion = fetchRequest.wrappedValue.first
+    let dbUserRegion = self.userRegion
     var userRegion: UserRegion
     if let unwrappedUserRegion = dbUserRegion {
       userRegion = unwrappedUserRegion
@@ -169,6 +159,6 @@ struct RegionDetail_Previews: PreviewProvider {
   static var regionData = RegionData()
 
   static var previews: some View {
-    RegionDetail(region: regionData.regions[0])
+    RegionDetail(region: regionData.regions[0], onBack: {})
   }
 }

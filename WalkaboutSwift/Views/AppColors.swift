@@ -17,3 +17,7 @@ struct Spacing {
   static let large: CGFloat = 28
   static let medium: CGFloat = 16
 }
+
+struct Fonts {
+  static let title: Font = Font.system(size: 24, weight: .bold)
+}
