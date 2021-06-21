@@ -15,15 +15,17 @@ struct AudioPlayer: View {
 
   @ObservedObject var progressObserver: ProgressObserver
 
-  var player: AVPlayer?
-  var playerObserver: Any?
+  @State var player: AVPlayer?
 
   init(name: String) {
+    var player: AVPlayer?
+    
     if let path = Bundle.main.url(forResource: name, withExtension: "m4a") {
       player = AVPlayer(url: path)
     }
 
     progressObserver = ProgressObserver(player: player)
+    _player = .init(initialValue: player)
   }
 
   var body: some View {
@@ -36,6 +38,7 @@ struct AudioPlayer: View {
           Image(systemName: isPlaying ? "pause" : "play")
         }
         ProgressBar(progress: progressObserver.currentProgress)
+          .frame(maxWidth: .infinity, maxHeight: 2)
       } else {
         Button(action: open) {
           Image(systemName: "speaker.2")
@@ -77,9 +80,11 @@ struct AudioPlayer: View {
 class ProgressObserver: ObservableObject {
   @Published var currentProgress: CGFloat = 0
 
+  var player: AVPlayer?
   var observation: Any?
 
   init(player: AVPlayer?) {
+    //self.player = player
     // TODO: (kyle): memory leak?
     if let player = player {
       observation = player.addPeriodicTimeObserver(
